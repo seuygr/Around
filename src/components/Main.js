@@ -4,6 +4,7 @@ import { Login } from './Login';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Home } from './Home';
 
+
 export class Main extends React.Component {
     getLogin = () => {
         if (this.props.isLoggedIn) {
