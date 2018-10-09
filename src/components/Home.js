@@ -38,6 +38,7 @@ export class Home extends React.Component {
         const { latitude, longitude } = position.coords;
         localStorage.setItem(POS_KEY, JSON.stringify({latitude, longitude}));
         this.setState({loadingGeoLocation: false, error: ''});
+        this.loadNearbyPosts();
     }
 
     onFailedLoadGeoLocation = (error) => {
@@ -73,7 +74,7 @@ export class Home extends React.Component {
         const { latitude, longitude } = JSON.parse(localStorage.getItem(POS_KEY));
 
         $.ajax({
-            url: `${API_ROOT}/search?lat=${latitude}&lon=${longitude}&range=20`,
+            url: `${API_ROOT}/search?latitude=${latitude}&longitude=${longitude}&range=2000`,
             headers: {
                 Authorization: `${AUTH_PREFIX} ${localStorage.getItem(TOKEN_KEY)}`
             }
@@ -90,7 +91,7 @@ export class Home extends React.Component {
         );
     }
     render() {
-        const createPostButton = <CreatePostButton />;
+        const createPostButton = <CreatePostButton loadNearbyPosts={this.loadNearbyPosts} />;
         return (
             <Tabs tabBarExtraContent={createPostButton} className="main-tabs">
                 <TabPane tab="Posts" key="1">{this.getGalleryPanelContent()}</TabPane>
