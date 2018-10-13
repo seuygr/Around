@@ -8,3 +8,4 @@ export const GEO_OPTIONS = {
 }
 
 export const POS_KEY = 'POS_KEY'
+export const LOC_SHAKE = 0.02

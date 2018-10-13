@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button, message } from 'antd';
 import {WrappedCreatePostForm} from "./CreatePostForm"
-import {POS_KEY, API_ROOT, TOKEN_KEY, AUTH_PREFIX } from "../constants"
+import {POS_KEY, API_ROOT, TOKEN_KEY, AUTH_PREFIX, LOC_SHAKE} from "../constants"
 import $ from 'jquery';
 export class CreatePostButton extends React.Component {
     state = {
@@ -24,8 +24,8 @@ export class CreatePostButton extends React.Component {
                 console.log(values);
 
                 const formData = new FormData();
-                formData.set('latitude', latitude);
-                formData.set('longitude', longitude);
+                formData.set('lat', latitude + Math.random() * 2 * LOC_SHAKE - LOC_SHAKE);
+                formData.set('lon', longitude + Math.random() * 2 * LOC_SHAKE - LOC_SHAKE);
                 formData.set('message', values.message);
                 formData.set('image', values.image[0].originFileObj);
 
@@ -34,7 +34,7 @@ export class CreatePostButton extends React.Component {
                     url: `${API_ROOT}/post`,
                     method: 'POST',
                     data: formData,
-                    header: {
+                    headers: {
                         Authorization: `${AUTH_PREFIX} ${localStorage.getItem(TOKEN_KEY)}`
                     },
                     processData: false,
