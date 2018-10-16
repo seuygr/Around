@@ -12,6 +12,7 @@ The website is built based on React, which is a declarative, efficient, and flex
 ## Posts
 Here in this section, you can upload an image and some comments. Later you can view your post in the "Posts" tab as well as on the map.
 ![img](https://github.com/seuygr/Around/blob/master/image/Upload.png)
+![img](https://github.com/seuygr/Around/blob/master/image/Nearby%20posts.png)
 
 ## Map
 ![img](https://github.com/seuygr/Around/blob/master/image/Marker%20on%20the%20map1.png)
