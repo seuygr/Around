@@ -5,9 +5,12 @@ The website is built based on React, which is a declarative, efficient, and flex
 
 ## Login Page
 ![img](https://github.com/seuygr/Around/blob/master/image/Login.png)
+
 ## Registration Page
+![img](https://github.com/seuygr/Around/blob/master/image/Registration.png)
 
 ## Posts
+![img](https://github.com/seuygr/Around/blob/master/image/Registration.png)
 
 ## Map
 
